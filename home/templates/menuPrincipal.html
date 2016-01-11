@@ -1,0 +1,59 @@
+<html>
+
+	<head>
+		<title> Don Futbolero.com </title>
+		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  		
+		<style>
+			h1 {
+				color: #000000;
+				font-family: verdana;
+				font-size: 500%;
+			}
+			h2 {
+				color: #000000;
+				font-family: verdana;
+				font-size: 180%;
+			}
+		</style>
+	</head>
+	
+	<center>
+	<body background="/media/campo02.JPG">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Inicio</a>
+			</div>
+			<div>
+			<ul class="nav navbar-nav">
+			  <li><a href="/clasificacion">Clasificacion</a></li>
+			  <li><a href="/calendario">Calendario</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			{% if not user.is_authenticated %}
+				<li><a href="/usuario/registro"><span class="glyphicon glyphicon-user"></span> Resgistrarse</a></li>
+				<li><a href="/usuario/login"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+			{% else %}
+				<li><a href="/"> <span class="glyphicon glyphicon-user"></span>{{user.username}} </a></li>
+				<li><a href="/usuario/logout"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
+			{% endif %}
+			</ul>
+			</div>
+			</div>
+		</nav>
+		
+		<h1> <u> <b> <img src="/media/logaster_No_1_small_size_99x75_pixels_(PNG)/4_Grayscale_logo_on_transparent_99x75.png";style="float:left"> Don Futbolero <img src="/media/logaster_No_1_small_size_99x75_pixels_(PNG)/4_Grayscale_logo_on_transparent_99x75.png";style="float:right"> </b> </u> </h1>
+		
+		<h2> La mejor página para seguir a tu equipo favorito en la mejor liga de fútbol del mundo.</h2>
+		<br></br>
+		<h2> "Si llega a entrar, es gol" </h2>
+		<h2> Míchel. </h2>
+
+	</body>
+	</center>
+
+</html>
