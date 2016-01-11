@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title> Modificar Equipo </title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<style>
+			h1 {
+				color: #000000;
+				font-family: verdana;
+				font-size: 300%;
+			}
+			h2 {
+				color: #000000;
+				font-family: verdana;
+				font-size: 250%;
+			}
+			h3  {
+				color: #000001;
+				font-family: verdana;
+				font-size: 200%;
+			}
+			h4  {
+				color: #000001;
+				font-family: coursive;
+				font-size: 150%;
+			}
+		</style>
+	</head>
+	
+	<body background="/media/campo02.JPG">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Inicio</a>
+			</div>
+			<div>
+			<ul class="nav navbar-nav">
+			  <li><a href="/clasificacion">Clasificacion</a></li>
+			  <li><a href="/calendario">Calendario</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			{% if not user.is_authenticated %}
+				<li><a href="/usuario/registro"><span class="glyphicon glyphicon-user"></span> Resgistrarse</a></li>
+				<li><a href="/usuario/login"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+			{% else %}
+				<li><a href="/"> <span class="glyphicon glyphicon-user"></span>{{user.username}} </a></li>
+				<li><a href="/usuario/logout"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
+			{% endif %}
+			</ul>
+			</div>
+			</div>
+		</nav>
+		
+		<center>
+			<h2>Modificar {{equipo.nombre}}</h2>
+			<br></br>
+			<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+				{{formulario.as_p}}
+				<p><input type='submit' value="Guardar modificación"></p>
+			</form>
+		</center>
+		
+	</body>
+</html>
